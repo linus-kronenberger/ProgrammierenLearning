@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class Quicksort {
 
     public static void main(String[] args) {
-        //int[] arr = {5, 3, 21, 10, 2, 1, 4};
-        int[] arr = {9, 9, 9, 10, 11, 11, 11};
+        int[] arr = {5, 3, 21, 10, 2, 1, 4};
         System.out.println("Array unsorted: " + Arrays.toString(arr));
         int pivot = arr.length / 2; // 3
         int[] arrSorted = quicksort(arr, pivot);
@@ -21,6 +20,7 @@ public class Quicksort {
         int right = arr.length - 1;
         boolean leftStopped = false;
         boolean rightStopped = false;
+        boolean needRecursion = false;
         while(left <= right) {
             int leftValue = arr[left];
             int rightValue = arr[right];
@@ -38,6 +38,9 @@ public class Quicksort {
             }
             if(leftStopped && rightStopped) {
                 //swap
+                if(leftValue != rightValue) {
+                    needRecursion = true;
+                }
                 arr[right] = leftValue;
                 arr[left] = rightValue;
                 left ++;
@@ -48,7 +51,47 @@ public class Quicksort {
                 System.out.println("new Array: " + Arrays.toString(arr));
             }
         }
+        //resursion
+        if(needRecursion == true) {
+            System.out.println("recursion");
+            int pivotLeft = arr.length / 4;
+            int pivotRight = arr.length/2 + arr.length / 4;
+            int arrLeftLength = pivot;
+            int arrRightLength = arr.length - pivot;
+            if(arrLeftLength > 1 ) {
+                int[] leftArr = new int[arrLeftLength];
+                int[] rightArr = new int[arrRightLength];
+
+                //fill left array
+                for (int i = 0; i < arr.length; i++) {
+                    if(i < pivot) {
+                        leftArr[i] = arr[i];
+                    }
+                    else {
+                        rightArr[i - pivot] = arr[i];
+                    }
+                }
+
+                System.out.println("left array: " + Arrays.toString(leftArr));
+                System.out.println("right array: " + Arrays.toString(rightArr));
+
+                //fill right array
+
+                int[] leftRes = quicksort(leftArr, pivotLeft);
+                int[] rightRes = quicksort(rightArr, pivotRight);
+
+                //merge
+                for (int i = 0; i < arr.length; i++) {
+                    if(i < pivot) {
+                        arr[i] = leftRes[i];
+                    }
+                    else {
+                        arr[i] = rightRes[i - pivot];
+                    }
+                }
+            }
+            
+        }
         return arr;
     }
 }
-
