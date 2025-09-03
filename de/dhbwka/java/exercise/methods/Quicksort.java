@@ -3,76 +3,52 @@ package de.dhbwka.java.exercise.methods;
 import java.util.Arrays;
 
 public class Quicksort {
-    static int[] arr = {5, 3, 21, 10, 2, 1, 4};
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(arr));
-        quicksort(0, arr.length - 1, (arr.length / 2));
-        System.out.println(Arrays.toString(arr));
+        //int[] arr = {5, 3, 21, 10, 2, 1, 4};
+        int[] arr = {9, 9, 9, 10, 11, 11, 11};
+        System.out.println("Array unsorted: " + Arrays.toString(arr));
+        int pivot = arr.length / 2; // 3
+        int[] arrSorted = quicksort(arr, pivot);
+        System.out.println("Array sorted: " + Arrays.toString(arrSorted));
     }
 
-    public static void quicksort(int left, int right, int pivot) {
-        int leftStart = left;
-        int rightStart = right;
-        System.out.println(Arrays.toString(arr));
-        if(left >= right) {
-            return;
-        }
-
+    public static int[] quicksort(int[] arr, int pivot) {
         int pivotValue = arr[pivot];
-
-        boolean sorted = true;
-        boolean endWhile = false;
-        while(!endWhile) {
-            
-            if(left == right) {
-                left ++;
-                right --;
-                if(!(left <= right)) {
-                    left --;
-                    right --;
-                    endWhile = true;
-            }
-            }
+        System.out.println("pivot pointer: " + pivot);
+        System.out.println("pivot: " + pivotValue);
+        int left = 0;
+        int right = arr.length - 1;
+        boolean leftStopped = false;
+        boolean rightStopped = false;
+        while(left <= right) {
             int leftValue = arr[left];
             int rightValue = arr[right];
-            if(leftValue < pivotValue) {
+            if (leftValue < pivotValue) {
                 left ++;
-                if(!(left <= right)) {
-                    left --;
-                    endWhile = true;
+            } else {
+                System.out.println("left stopped on: " + leftValue);
+                leftStopped = true;
             }
             if(rightValue > pivotValue) {
                 right --;
-                if(!(left <= right)) {
-                    right ++;
-                    endWhile = true;
+            } else {
+                System.out.println("right stopped on: " + rightValue);
+                rightStopped = true;
             }
-            if(leftValue >= pivotValue && rightValue <= pivotValue) {
+            if(leftStopped && rightStopped) {
                 //swap
-                arr[left] = rightValue;
                 arr[right] = leftValue;
+                arr[left] = rightValue;
                 left ++;
                 right --;
-                if(!(left <= right)) {
-                    left --;
-                    right --;
-                    endWhile = true;
-                sorted = false;
-            
-            }   
+                leftStopped = false;
+                rightStopped = false;
+                System.out.println("SWAP: " + leftValue + " and " + rightValue);
+                System.out.println("new Array: " + Arrays.toString(arr));
+            }
         }
-        //recursion
-        if(!sorted) {
-            int left1 = leftStart;
-            int right1 = pivot;
-            int piv1 = (right1 + left1) / 2;
-            quicksort(left1, right1, piv1);
-            int left2 = piv1 + 1;
-            int right2 = rightStart;
-            int piv2 = (right2 + left2) / 2;
-            quicksort(left2, right2, piv2);
-        }
+        return arr;
     }
 }
 
