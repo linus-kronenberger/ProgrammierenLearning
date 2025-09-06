@@ -41,8 +41,15 @@ public class Quicksort {
                 if(leftValue != rightValue) {
                     needRecursion = true;
                 }
+
                 arr[right] = leftValue;
+                if(left == pivot) {
+                    pivot = right;
+                }
                 arr[left] = rightValue;
+                if(right == pivot) {
+                    pivot = left;
+                }
                 left ++;
                 right --;
                 leftStopped = false;
@@ -52,11 +59,11 @@ public class Quicksort {
             }
         }
         //resursion
-        if((needRecursion == true) && (pivot > 0) && (arr.length - pivot) > 0) {
+        if(needRecursion == true) {
             System.out.println("recursion");
-            
-            int pivotLeft = arr.length / 4;
-            int pivotRight = arr.length/2 + arr.length / 4;
+
+            int pivotLeft = pivot / 2;
+            int pivotRight = (int) (pivot * 1.5);
             int arrLeftLength = pivot;
             int arrRightLength = arr.length - pivot;
             
@@ -78,8 +85,14 @@ public class Quicksort {
 
             //fill right array
             pivotRight = pivotRight - arrLeftLength;
-            int[] leftRes = quicksort(leftArr, pivotLeft);
-            int[] rightRes = quicksort(rightArr, pivotRight);
+            int[] leftRes = null;
+            int[] rightRes = null;
+            if(leftArr.length > 0) {
+                leftRes = quicksort(leftArr, pivotLeft);
+            }
+            if(rightArr.length > 0) { 
+                rightRes = quicksort(rightArr, pivotRight);
+            }
 
             //merge
             for (int i = 0; i < arr.length; i++) {
