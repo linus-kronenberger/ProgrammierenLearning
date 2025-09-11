@@ -10,7 +10,6 @@ public class Soccer extends GameEngine {
 
     public static void main(String[] args) {
         Soccer soccerGame = new Soccer();
-        SoccerKeyController keyController = new SoccerKeyController();
 
         soccerGame.startSoccer();
         int posX = 0;
@@ -25,8 +24,9 @@ public class Soccer extends GameEngine {
         soccerGame.window.setVisible(true);
         boolean gamePlaying = true;
         while (gamePlaying) {
-            // main cycle
-            ;
+            if(SoccerKeyController.isWPressed()) {
+                System.out.println("W pressed");
+            }
         }
     }
 }
