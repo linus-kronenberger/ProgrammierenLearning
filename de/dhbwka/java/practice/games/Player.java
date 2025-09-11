@@ -12,7 +12,10 @@ public class Player {
     private int posY;
     public float speed = 50.0f;
     public char animationState = 'i';
-    private int animationStartPoint;
+    public char prevAnimationState = 'i';
+    private long animationStartPoint;
+    private int sizeX = 200;
+    private int sizeY = 200;
     JLabel playerLabel;
 
     public ImageIcon playerSprite;
@@ -31,7 +34,7 @@ public class Player {
         try {
             this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerIDLE.PNG");
             Image image = playerSprite.getImage();
-            Image newImg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+            Image newImg = image.getScaledInstance(sizeX, sizeY, java.awt.Image.SCALE_SMOOTH);
             this.playerSprite = new ImageIcon(newImg);
             this.playerLabel = new JLabel(this.playerSprite);
         } catch(Exception exception) {
@@ -50,7 +53,14 @@ public class Player {
         //System.out.println("Player animating...");
         switch (animationState) {
             case 'i':
-                break;
+                if(prevAnimationState != 'i') {
+                    this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerIDLE.PNG");
+                    Image image = playerSprite.getImage();
+                    Image newImg = image.getScaledInstance(sizeX, sizeY, java.awt.Image.SCALE_SMOOTH);
+                    this.playerSprite = new ImageIcon(newImg);
+                    this.playerLabel = new JLabel(this.playerSprite);
+                    prevAnimationState = 'd';
+                }
             case 'r':
                 break;
             case 'l':
@@ -58,11 +68,20 @@ public class Player {
             case 'u':
                 break;
             case 'd':
-                this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerForward1.PNG");
-                Image image = playerSprite.getImage();
-                Image newImg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
-                this.playerSprite = new ImageIcon(newImg);
-                this.playerLabel = new JLabel(this.playerSprite);
+                if(prevAnimationState != 'd') {
+                    animationStartPoint = System.currentTimeMillis();
+                    System.out.println("running animation started at: " + animationStartPoint);
+                    /* this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerForward1.PNG");
+                    Image image = playerSprite.getImage();
+                    Image newImg = image.getScaledInstance(sizeX, sizeY, java.awt.Image.SCALE_SMOOTH);
+                    this.playerSprite = new ImageIcon(newImg);
+                    this.playerLabel = new JLabel(this.playerSprite); */
+                    prevAnimationState = 'd';
+                }
+                if(System.currentTimeMillis() - animationStartPoint >= 500) {
+                    System.out.println("toggle running animation after 0.5 seconds: ");
+                    animationStartPoint = System.currentTimeMillis();
+                }
         }
        
     }

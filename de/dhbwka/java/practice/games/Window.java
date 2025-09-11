@@ -9,7 +9,7 @@ public class Window extends JFrame {
     private int height;
 
     public Window(int width, int height) {
-        this.getContentPane().setBackground(new Color(0, 150, 0));
+        this.getContentPane().setBackground(new Color(0, 0, 0));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(width, height);
         this.setResizable(false);

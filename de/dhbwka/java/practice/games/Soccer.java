@@ -16,7 +16,6 @@ public class Soccer extends GameEngine {
         Player player = new Player(posX, posY);
         
         JLabel gameLabel = new JLabel("SOCCER");
-        player.playerLabel.setBounds(10, 10, 100, 100);
         gameLabel.setLocation(100, 100);
         soccerGame.window.addKeyListener(new SoccerKeyController(player));
         soccerGame.window.add(gameLabel);
