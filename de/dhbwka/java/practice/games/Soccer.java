@@ -23,5 +23,10 @@ public class Soccer extends GameEngine {
         soccerGame.window.add(player.playerLabel);
         soccerGame.window.setVisible(true);
         boolean gamePlaying = true;
+        while (gamePlaying) {
+            soccerGame.main();
+            player.update();
+            soccerGame.rerender();
+        }
     }
 }

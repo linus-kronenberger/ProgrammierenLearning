@@ -11,6 +11,8 @@ public class Player {
     private int posX;
     private int posY;
     public float speed = 50.0f;
+    public char animationState = 'i';
+    private int animationStartPoint;
     JLabel playerLabel;
 
     public ImageIcon playerSprite;
@@ -27,7 +29,7 @@ public class Player {
         }
         
         try {
-            this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/Foto.jpg");
+            this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerIDLE.PNG");
             Image image = playerSprite.getImage();
             Image newImg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
             this.playerSprite = new ImageIcon(newImg);
@@ -38,8 +40,36 @@ public class Player {
         
     }
 
-    public void keyboardMovement(int keyCode) {
-        System.out.println("Key Code: " + keyCode);
+    public void update() {
+        //System.out.println("Player Updating...");
+        this.checkCollisions();
+        this.animate();
+    }
+
+    public void animate() {
+        //System.out.println("Player animating...");
+        switch (animationState) {
+            case 'i':
+                break;
+            case 'r':
+                break;
+            case 'l':
+                break;
+            case 'u':
+                break;
+            case 'd':
+                this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerForward1.PNG");
+                Image image = playerSprite.getImage();
+                Image newImg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+                this.playerSprite = new ImageIcon(newImg);
+                this.playerLabel = new JLabel(this.playerSprite);
+        }
+       
+    }
+
+    public void checkCollisions() {
+        //System.out.println("Player checking collisions...");
+        ;
     }
 
     public int getPosX() {
