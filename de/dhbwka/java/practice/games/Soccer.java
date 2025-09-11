@@ -10,7 +10,6 @@ public class Soccer extends GameEngine {
 
     public static void main(String[] args) {
         Soccer soccerGame = new Soccer();
-
         soccerGame.startSoccer();
         int posX = 0;
         int posY = 0;
@@ -19,14 +18,13 @@ public class Soccer extends GameEngine {
         JLabel gameLabel = new JLabel("SOCCER");
         playerLabel.setBounds(10, 10, 100, 100);
         gameLabel.setLocation(100, 100);
+        soccerGame.window.addKeyListener(new SoccerKeyController());
         soccerGame.window.add(gameLabel);
         soccerGame.window.add(playerLabel);
         soccerGame.window.setVisible(true);
         boolean gamePlaying = true;
         while (gamePlaying) {
-            if(SoccerKeyController.isWPressed()) {
-                System.out.println("W pressed");
-            }
+            
         }
     }
 }
