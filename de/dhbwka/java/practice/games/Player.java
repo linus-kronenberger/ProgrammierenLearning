@@ -5,10 +5,14 @@ import java.awt.Toolkit;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class Player {
     private int posX;
     private int posY;
+    public float speed = 50.0f;
+    JLabel playerLabel;
+
     public ImageIcon playerSprite;
 
     public Player (int posX, int posY) {
@@ -27,6 +31,7 @@ public class Player {
             Image image = playerSprite.getImage();
             Image newImg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
             this.playerSprite = new ImageIcon(newImg);
+            this.playerLabel = new JLabel(this.playerSprite);
         } catch(Exception exception) {
             exception.printStackTrace();
         }
