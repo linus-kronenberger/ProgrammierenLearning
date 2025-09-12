@@ -18,6 +18,7 @@ public class SoccerKeyController extends KeyAdapter {
         char ch = event.getKeyChar();
         int posX = player.playerLabel.getLocation().x;
         int posY = player.playerLabel.getLocation().y;
+        System.out.println("key pressed: " + ch);
         if(ch == 'w') {
             player.playerLabel.setLocation(posX, (int) (posY - player.speed));
         } else if(ch == 's') {
@@ -31,6 +32,6 @@ public class SoccerKeyController extends KeyAdapter {
     }
     @Override
     public void keyReleased(KeyEvent event) {
-
+        ;
     }
 }
