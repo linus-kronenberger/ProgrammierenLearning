@@ -17,6 +17,8 @@ public class Player {
     private int sizeX = 200;
     private int sizeY = 200;
     public JLabel playerLabel;
+    public enum animationStateImages { IDLE, RUNNING_LEFT1, RUNNING_LEFT2, RUNNING_RIGHT1, RUNNING_RIGHT2, RUNNING_FORWARD, RUNNING_BACKWARDS };
+    public animationStateImages animationStateImage = animationStateImages.IDLE;
 
     public ImageIcon playerSprite;
 
@@ -51,7 +53,7 @@ public class Player {
     }
 
     public void animate() {
-        //System.out.println("Player animating...");
+        System.out.println("Player animating...");
         switch (animationState) {
             case 'i':
                 if(prevAnimationState != 'i') {
@@ -60,7 +62,7 @@ public class Player {
                     Image newImg = image.getScaledInstance(sizeX, sizeY, java.awt.Image.SCALE_SMOOTH);
                     this.playerSprite = new ImageIcon(newImg);
                     this.playerLabel = new JLabel(this.playerSprite); */
-                    prevAnimationState = 'd';
+                    prevAnimationState = 'i';
                 }
             case 'r':
                 break;
@@ -73,11 +75,14 @@ public class Player {
                     animationStartPoint = System.currentTimeMillis();
                     System.out.println("running animation started at: " + animationStartPoint);
 
-                    /* this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerIDLE.PNG");
+                    this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerForward1.PNG");
                     Image image = playerSprite.getImage();
                     Image newImg = image.getScaledInstance(sizeX, sizeY, java.awt.Image.SCALE_SMOOTH);
                     this.playerSprite.setImage(newImg);
-                    this.playerLabel.setIcon(this.playerSprite); */
+                    this.playerLabel.setIcon(this.playerSprite);
+                    this.playerLabel.repaint();
+                    this.playerLabel.getParent().revalidate();
+                    System.out.println("Wechsel doch das scheiß Bild...");
                     prevAnimationState = 'd';
                 }
                 if(System.currentTimeMillis() - animationStartPoint >= 500) {
