@@ -7,7 +7,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Player {
+public class Player extends Thread {
     private int posX;
     private int posY;
     public float speed = 50.0f;
@@ -46,10 +46,12 @@ public class Player {
         
     }
 
-    public void update() {
-        //System.out.println("Player Updating...");
-        this.checkCollisions();
-        this.animate();
+    @Override
+    public void run() {
+        while(true) {
+            this.checkCollisions();
+            this.animate();
+        }
     }
 
     public void animate() {

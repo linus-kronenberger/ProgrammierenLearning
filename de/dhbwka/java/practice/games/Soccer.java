@@ -2,14 +2,21 @@ package de.dhbwka.java.practice.games;
 
 import javax.swing.JLabel;
 
-public class Soccer extends GameEngine {
+public class Soccer extends GameEngine implements Runnable {
+    Soccer soccerGame;
+
+    public Soccer() {
+        
+    }
+
     public void startSoccer() {
         boolean engineStatus = this.init();
         System.out.println("Game Engine initialize status: " + engineStatus);
     }
 
-    public static void main(String[] args) {
-        Soccer soccerGame = new Soccer();
+    @Override
+    public void run() {
+        
         soccerGame.startSoccer();
         int posX = 0;
         int posY = 0;
@@ -23,9 +30,14 @@ public class Soccer extends GameEngine {
         soccerGame.window.add(player.playerLabel);
         soccerGame.window.setVisible(true);
         boolean gamePlaying = true;
+        player.start();
         while (gamePlaying) {
             soccerGame.main();
-            player.update(); 
         } 
+    }
+
+    public static void main(String[] args) {
+        //soccerGame = new Soccer();
+        
     }
 }
