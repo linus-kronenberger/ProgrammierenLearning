@@ -4,7 +4,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class ShowDialog extends JFrame{
+public class ShowDialog extends JFrame {
     public static void main(String[] args) {
         ShowDialog frame = new ShowDialog();
         JDialog dialog = new JDialog(frame, "hi from my dialog!!!");
