@@ -39,6 +39,9 @@ public class Streams {
         // Aus Menge einen Wert berechnen -> Output ist ein Wert
         System.out.println(myValueList.stream()
                     .reduce(0, Integer::sum));
+
+        
+                    long anzahl = liste.stream().count();
                     
     }
 }
