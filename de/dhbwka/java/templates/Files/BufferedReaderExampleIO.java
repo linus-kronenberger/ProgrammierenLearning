@@ -13,8 +13,9 @@ public class BufferedReaderExampleIO {
                 String line = br.readLine();
                 System.out.println("Line Read: " + line);
             }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -13,14 +13,12 @@ public class ButtonsEventHandler extends JFrame {
         ButtonsEventHandler window = new ButtonsEventHandler();
         JButton button = new JButton();
         button.setText("My Button!");
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e)
-            {
+        button.addActionListener(e->{
                 // auf äußeres this zugreifen:
                 //System.out.println(ButtonsEventHandler.this.labelString); -> möglich wenn in der Klasse und es nicht um Instanz geht
                 //JButton button =  (JButton) e.getSource(); -> source bekommen
                 System.out.println("Button geklickt!");
-            }
+            
         });
         window.add(button);
         window.setSize(250, 250);

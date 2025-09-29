@@ -7,12 +7,13 @@ import java.io.IOException;
 public class DateiSchreiber {
     public static void main(String[] args) {
         String dateiPfad = "de/dhbwka/java/templates/Files/myFile.txt";
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(dateiPfad))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(dateiPfad, true))) {
             bw.write("Erste Zeile Text");
             bw.newLine();
             bw.write("Zweite Zeile Text");
             bw.newLine();
             bw.write("Noch eine Zeile");
+            bw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
