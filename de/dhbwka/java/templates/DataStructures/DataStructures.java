@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Stack;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.HashSet;
 
 public class DataStructures {
     public static void main(String[] args) {
@@ -27,5 +28,9 @@ public class DataStructures {
         List<Integer> myValues = myStack.stream().filter((value) -> value==2).collect(Collectors.toList());
         myValues.stream().forEach(System.out::println);
         //weitere Datenstrukturen aus den Folien
+        HashSet<String> mySet = new HashSet<>();
+        mySet.add("Hallo");
+        mySet.add("test");
+        System.out.println(mySet);
     }
 }
