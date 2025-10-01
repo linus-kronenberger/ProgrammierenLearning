@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 public class BufferedReaderExampleIO {
     public static void main(String[] args) {
+        // String[] lines = l.toArray(new String[0]);
         System.out.println("Working dir: " + System.getProperty("user.dir"));
         File f = new File("de/dhbwka/java/templates/Files/myFile.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(f))) {

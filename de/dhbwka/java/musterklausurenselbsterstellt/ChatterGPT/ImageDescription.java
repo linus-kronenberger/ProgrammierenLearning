@@ -15,4 +15,7 @@ public class ImageDescription {
     public ImageIcon getReferenceImage() {
         return this.referenceImage;
     }
+    public String getLabel() {
+        return this.label;
+    }
 }

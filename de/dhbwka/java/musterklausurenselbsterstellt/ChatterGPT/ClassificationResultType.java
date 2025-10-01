@@ -12,4 +12,7 @@ public enum ClassificationResultType {
     public int getScore() {
         return this.score;
     }
+    public String getLabel() {
+        return this.label;
+    }
 }

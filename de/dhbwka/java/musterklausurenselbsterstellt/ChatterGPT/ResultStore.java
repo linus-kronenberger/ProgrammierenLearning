@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -25,5 +28,13 @@ public class ResultStore {
                             .count();
         
         display.setValues(desc, realScore, number);
+
+         try (BufferedWriter bw = new BufferedWriter(new FileWriter("classifications.txt", true))) {
+
+            bw.write(desc.getLabel() + ";" + res.getType().getLabel());
+            bw.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

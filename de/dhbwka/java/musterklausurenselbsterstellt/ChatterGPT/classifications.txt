@@ -1,0 +1,25 @@
+Spargel;CorrectErste Zeile Text
+Balkan-Fleisch;Not classified
+Balkan-Fleisch;Correct
+Lebkuchen;Not classified
+Salami;Not classified
+Salami;Correct
+Wassermelone;Not classified
+Wassermelone;Not classified
+Gemüse;Not classified
+Eis;Not classified
+Balkan-Fleisch;Not classified
+Brot;Not classified
+Brot;Not classified
+Leberkäsweck;Not classified
+Brot;Not classified
+Leberkäsweck;Not classified
+Balkan-Fleisch;Not classified
+Döner-Kebap;Not classified
+Fischsemmel;Not classified
+Spargel;Not classified
+Leberkäsweck;Not classified
+Wassermelone;Not classified
+Spargel;Not classified
+Bratwurst;Not classified
+Leberkäsweck;Not classified
