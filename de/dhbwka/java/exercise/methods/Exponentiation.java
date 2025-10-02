@@ -16,7 +16,7 @@ public class Exponentiation {
     }
 
     public static int calculateExpotenz(int a, int c) {
-        if(c == 0) {
+        if (c == 0) {
             return 1;
         } else {
             return a * calculateExpotenz(a, c - 1);

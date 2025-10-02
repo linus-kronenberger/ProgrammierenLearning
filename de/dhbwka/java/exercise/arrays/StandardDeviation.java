@@ -12,14 +12,14 @@ public class StandardDeviation {
         }
         System.out.println(myList);
         System.out.println(myList.size());
-        double mittelwert = ((double) myList.stream().mapToInt(Integer::intValue).sum()/myList.stream().count());
+        double mittelwert = ((double) myList.stream().mapToInt(Integer::intValue).sum() / myList.stream().count());
         System.out.println("Mittelwert: " + mittelwert);
         double deviation = 0;
         double sum = 0;
-        for(int i=0; i<=99; i++) {
+        for (int i = 0; i <= 99; i++) {
             sum += Math.pow(myList.get(i) - mittelwert, 2);
         }
         deviation = Math.sqrt((double) 1 / (myList.size() - 1) * sum);
         System.out.println(deviation);
-    }    
+    }
 }

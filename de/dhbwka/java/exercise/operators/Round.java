@@ -5,15 +5,15 @@ public class Round {
         double pi = 3.1415926;
         double e = 2.7182818;
 
-        if(pi < 0) {
+        if (pi < 0) {
             int piInt = (int) (pi - 0.5);
             System.out.println("Pi ganzzahlig: " + piInt);
-        }else{
+        } else {
             int piInt = (int) (pi + 0.5);
             System.out.println("Pi ganzzahlig: " + piInt);
         }
 
-        if(e < 0) {
+        if (e < 0) {
             int eInt = (int) (e - 0.5);
             System.out.println("e ganzzahlig: " + eInt);
         } else {

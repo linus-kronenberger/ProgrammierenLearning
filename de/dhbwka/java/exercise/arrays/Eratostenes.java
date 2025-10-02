@@ -17,23 +17,23 @@ public class Eratostenes {
         int[] primes = new int[n];
         int primesIndex = 0;
         boolean getauscht = true;
-        while(getauscht) {
+        while (getauscht) {
             int min = 0;
             for (int i = 0; i < sieve.length; i++) {
-                if(sieve[i] < min || min == 0) {
+                if (sieve[i] < min || min == 0) {
                     if (sieve[i] != 0) {
                         min = sieve[i];
                     }
                 }
             }
-            if(min!=0) {
+            if (min != 0) {
                 primes[primesIndex] = min;
-                primesIndex ++;
+                primesIndex++;
             } else {
                 getauscht = false;
             }
             for (int j = 0; j < sieve.length; j++) {
-                if(min != 0 && sieve[j] % min == 0) {
+                if (min != 0 && sieve[j] % min == 0) {
                     sieve[j] = 0;
                 }
             }

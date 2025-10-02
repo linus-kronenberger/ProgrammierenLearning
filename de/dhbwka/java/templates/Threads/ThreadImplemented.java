@@ -5,6 +5,7 @@ public class ThreadImplemented implements Runnable {
     public void run() {
         System.out.println("my thread works!!!");
     }
+
     public static void main(String[] args) {
         ThreadImplemented myThread = new ThreadImplemented();
         ThreadImplemented myThread2 = new ThreadImplemented();

@@ -13,9 +13,9 @@ public class Palindrome {
         StringBuffer reversedStringBuffer = new StringBuffer();
         reversedStringBuffer = originalStringBuffer.reverse();
 
-        
+
         System.out.println(reversedStringBuffer.toString());
-        if(originalStringBuffer.toString().equals(reversedStringBuffer.toString())) {
+        if (originalStringBuffer.toString().equals(reversedStringBuffer.toString())) {
             System.out.println("ist ein Palindrom.");
         } else {
             System.out.println("ist kein Palindrom.");

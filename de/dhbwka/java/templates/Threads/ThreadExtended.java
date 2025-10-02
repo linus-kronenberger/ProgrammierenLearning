@@ -9,13 +9,13 @@ public class ThreadExtended extends Thread {
         this.myValue = myValue;
     }
 
-    @Override 
+    @Override
     public void run() {
         System.out.println("my override");
         this.myValue.increaseValue(); // weil es synchronized ist kann das parallel geupdatet werden
-        while(true) {
+        while (true) {
             System.out.println("thread number: " + threadNumber + " is running :D");
-            
+
         }
     }
 

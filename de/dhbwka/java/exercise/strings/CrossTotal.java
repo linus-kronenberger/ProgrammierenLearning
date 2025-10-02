@@ -9,8 +9,7 @@ public class CrossTotal {
         String eingabeWert = eingabe.next();
         eingabe.close();
         int sum = 0;
-        for(int i=0; i<eingabeWert.length(); i++)
-        {
+        for (int i = 0; i < eingabeWert.length(); i++) {
             String myValue = Character.toString(eingabeWert.charAt(i));
             int z = Integer.parseInt(myValue);
             sum += z;

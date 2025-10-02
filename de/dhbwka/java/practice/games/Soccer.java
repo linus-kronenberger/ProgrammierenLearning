@@ -6,7 +6,7 @@ public class Soccer extends GameEngine implements Runnable {
     Soccer soccerGame;
 
     public Soccer() {
-        
+
     }
 
     public void startSoccer() {
@@ -16,7 +16,7 @@ public class Soccer extends GameEngine implements Runnable {
 
     @Override
     public void run() {
-        
+
         soccerGame.startSoccer();
         int posX = 0;
         int posY = 0;
@@ -33,11 +33,11 @@ public class Soccer extends GameEngine implements Runnable {
         player.start();
         while (gamePlaying) {
             soccerGame.main();
-        } 
+        }
     }
 
     public static void main(String[] args) {
         //soccerGame = new Soccer();
-        
+
     }
 }

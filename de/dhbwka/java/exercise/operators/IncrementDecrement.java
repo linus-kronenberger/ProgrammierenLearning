@@ -2,8 +2,8 @@ package de.dhbwka.java.exercise.operators;
 
 public class IncrementDecrement {
     public static void main(String[] args) {
-        int i=0;
-        int j=0;
+        int i = 0;
+        int j = 0;
         j = ++i; // j=1 i=1
         int k = j++ + ++i; // k=0 + 2 = 2, j=2, i=2
         System.out.println("k: " + k); // k:2

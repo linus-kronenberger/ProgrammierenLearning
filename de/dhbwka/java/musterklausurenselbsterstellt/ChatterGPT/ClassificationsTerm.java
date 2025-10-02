@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.ChatterGPT;
+
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,6 +54,7 @@ public class ClassificationsTerm extends JFrame implements ClassificationsDispla
         this.setSize(400, 400);
         this.setVisible(true);
     }
+
     @Override
     public void setValues(ImageDescription desc, int score, int number) {
         JLabel scoreLabel = hashMapForScores.get(desc);

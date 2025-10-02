@@ -1,3 +1,5 @@
+package de.dhbwka.java.templates.Layouts;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,14 +12,14 @@ import java.util.ArrayList;
 public class StandardLayoutKlausuren extends JFrame {
     JLabel topLabel = new JLabel("Oben");
     List<JButton> buttons = new ArrayList<>();
-    JLabel bottomLabel = new JLabel("Unten");  
+    JLabel bottomLabel = new JLabel("Unten");
 
     public StandardLayoutKlausuren() {
         this.setTitle("Standard Layout Klausuren");
         this.setSize(400, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         int gridWidth = 3;
-        int gridHeight = 3; 
+        int gridHeight = 3;
         // drei Komponenten: 
         // oben Label
         // mitte Grid mit Buttons

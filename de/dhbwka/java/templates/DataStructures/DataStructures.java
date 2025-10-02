@@ -12,20 +12,20 @@ import java.util.HashSet;
 public class DataStructures {
     public static void main(String[] args) {
         Map<String, Integer> ages = Map.ofEntries(
-        Map.entry("Peter", 22),
-        Map.entry("Ulrike", 21),
-        Map.entry("Katrin", 23),
-        Map.entry("Max", 20) );
+                Map.entry("Peter", 22),
+                Map.entry("Ulrike", 21),
+                Map.entry("Katrin", 23),
+                Map.entry("Max", 20));
         ages.values().stream()
-                     .forEach(System.out::println);
+                .forEach(System.out::println);
         ages.keySet().stream()
-                     .forEach(System.out::println);
+                .forEach(System.out::println);
 
         Stack<Integer> myStack = new Stack<>();
         myStack.push(1);
         myStack.push(2);
         myStack.push(3);
-        List<Integer> myValues = myStack.stream().filter((value) -> value==2).collect(Collectors.toList());
+        List<Integer> myValues = myStack.stream().filter((value) -> value == 2).collect(Collectors.toList());
         myValues.stream().forEach(System.out::println);
         //weitere Datenstrukturen aus den Folien
         HashSet<String> mySet = new HashSet<>();

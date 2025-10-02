@@ -1,4 +1,5 @@
 package de.dhbwka.java.exercise.arrays;
+
 import java.util.Scanner;
 
 public class MatrixSubtraction {

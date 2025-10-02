@@ -1,6 +1,6 @@
 package de.dhbwka.java.exercise.classes.vehicles;
 
-public class Ambulance extends Car{
+public class Ambulance extends Car {
     private boolean blaulicht;
 
     public Ambulance(double speed, boolean blaulicht) {

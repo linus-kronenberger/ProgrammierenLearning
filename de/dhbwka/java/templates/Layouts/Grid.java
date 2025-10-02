@@ -1,4 +1,5 @@
 package de.dhbwka.java.templates.Layouts;
+
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;

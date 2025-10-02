@@ -17,38 +17,41 @@ public class Player extends Thread {
     private int sizeX = 200;
     private int sizeY = 200;
     public JLabel playerLabel;
-    public enum animationStateImages { IDLE, RUNNING_LEFT1, RUNNING_LEFT2, RUNNING_RIGHT1, RUNNING_RIGHT2, RUNNING_FORWARD, RUNNING_BACKWARDS };
+
+    public enum animationStateImages {IDLE, RUNNING_LEFT1, RUNNING_LEFT2, RUNNING_RIGHT1, RUNNING_RIGHT2, RUNNING_FORWARD, RUNNING_BACKWARDS}
+
+    ;
     public animationStateImages animationStateImage = animationStateImages.IDLE;
 
     public ImageIcon playerSprite;
 
-    public Player (int posX, int posY) {
+    public Player(int posX, int posY) {
         this.playerLabel = new JLabel();
         this.posX = posX;
         this.posY = posY;
         System.out.println("Working dir: " + System.getProperty("user.dir"));
         URL imageURL = getClass().getResource("sprites/Foto.png");
-        if(imageURL == null) {
+        if (imageURL == null) {
             System.out.println("Sprite Bild von Player nicht gefunden.");
         } else {
             System.out.println("Player Sprite Image erfolgreich importiert");
         }
-        
+
         try {
             this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerIDLE.PNG");
             Image image = playerSprite.getImage();
             Image newImg = image.getScaledInstance(sizeX, sizeY, java.awt.Image.SCALE_SMOOTH);
             this.playerSprite.setImage(newImg);
             this.playerLabel.setIcon(this.playerSprite);
-        } catch(Exception exception) {
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
-        
+
     }
 
     @Override
     public void run() {
-        while(true) {
+        while (true) {
             this.checkCollisions();
             this.animate();
         }
@@ -58,7 +61,7 @@ public class Player extends Thread {
         System.out.println("Player animating...");
         switch (animationState) {
             case 'i':
-                if(prevAnimationState != 'i') {
+                if (prevAnimationState != 'i') {
                     /* this.playerSprite = new ImageIcon("de/dhbwka/java/practice/games/sprites/playerIDLE.PNG");
                     Image image = playerSprite.getImage();
                     Image newImg = image.getScaledInstance(sizeX, sizeY, java.awt.Image.SCALE_SMOOTH);
@@ -73,7 +76,7 @@ public class Player extends Thread {
             case 'u':
                 break;
             case 'd':
-                if(prevAnimationState != 'd') {
+                if (prevAnimationState != 'd') {
                     animationStartPoint = System.currentTimeMillis();
                     System.out.println("running animation started at: " + animationStartPoint);
 
@@ -87,12 +90,12 @@ public class Player extends Thread {
                     System.out.println("Wechsel doch das scheiß Bild...");
                     prevAnimationState = 'd';
                 }
-                if(System.currentTimeMillis() - animationStartPoint >= 500) {
+                if (System.currentTimeMillis() - animationStartPoint >= 500) {
                     System.out.println("toggle running animation after 0.5 seconds: ");
                     animationStartPoint = System.currentTimeMillis();
                 }
         }
-       
+
     }
 
     public void checkCollisions() {
@@ -112,7 +115,7 @@ public class Player extends Thread {
         this.posX = posX;
     }
 
-    public void setPosY(int posY){
+    public void setPosY(int posY) {
         this.posY = posY;
     }
 }

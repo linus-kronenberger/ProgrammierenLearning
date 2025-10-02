@@ -8,12 +8,12 @@ public abstract class GameEngine {
     public JPanel spritePanel;
     public int currentFPS;
     public int framesCounter = 0;
-    
+
     public boolean init() {
-         this.window = new Window(1920/2, 1080/2);
+        this.window = new Window(1920 / 2, 1080 / 2);
          /* this.mainPanel = new JPanel();
          this.spritePanel = new JPanel(); */
-         return window != null;
+        return window != null;
     }
 
     public void main() {

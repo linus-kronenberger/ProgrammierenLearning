@@ -24,7 +24,7 @@ public class DotProduct {
             Scanner zahlEingabe = new Scanner(System.in);
             int zahl = zahlEingabe.nextInt();
             arr2[j] = zahl;
-            sum+=arr1[j] * arr2[j];
+            sum += arr1[j] * arr2[j];
         }
         System.out.println("Skalarprodukt: " + sum);
     }

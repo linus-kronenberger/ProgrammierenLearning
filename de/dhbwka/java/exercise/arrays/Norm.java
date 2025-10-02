@@ -7,14 +7,14 @@ public class Norm {
         System.out.print("Bitte Anzahl der Elemente n eingeben: ");
         Scanner eingabe = new Scanner(System.in);
         int anzahl = eingabe.nextInt();
-        double[] arr = new double[anzahl]; 
+        double[] arr = new double[anzahl];
         for (int i = 0; i < anzahl; i++) {
             System.out.print("Bitte x_" + i + " eingeben: ");
             Scanner x = new Scanner(System.in);
             arr[i] = Math.pow(x.nextDouble(), 2);
         }
         double sum = 0.0;
-        for(int j=0; j<arr.length; j++) {
+        for (int j = 0; j < arr.length; j++) {
             sum += arr[j];
         }
         double res = Math.pow(sum, 0.5);

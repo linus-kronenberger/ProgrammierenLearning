@@ -10,18 +10,17 @@ public class Timer extends JFrame implements Runnable {
 
     @Override
     public void run() {
-        while(threadRuns) {
-            if(timerClock == 0) {
+        while (threadRuns) {
+            if (timerClock == 0) {
                 threadRuns = false;
                 Thread.currentThread().interrupt();
-            }
-            else if(System.currentTimeMillis() - timerTime >= 1000) {
-                timerClock --;
+            } else if (System.currentTimeMillis() - timerTime >= 1000) {
+                timerClock--;
                 timerTime = System.currentTimeMillis();
                 this.setTitle(String.valueOf(timerClock) + " Seconds");
             }
         }
-        
+
     }
 
     public Timer() {

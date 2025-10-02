@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.ChatterGPT;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 
-public class ValidationTerm extends JFrame implements Runnable{
+public class ValidationTerm extends JFrame implements Runnable {
     private List<ImageDescription> images;
     private ResultStore classifications;
     private int countImages;
@@ -32,12 +34,12 @@ public class ValidationTerm extends JFrame implements Runnable{
 
     @Override
     public void run() {
-        while(true) {
-            if((System.currentTimeMillis() - currentTime >= 1000) && runs == true) {
-                countDown --;
+        while (true) {
+            if ((System.currentTimeMillis() - currentTime >= 1000) && runs == true) {
+                countDown--;
                 this.setTitle("Validation Term (" + countDown + " Seconds)");
                 currentTime = System.currentTimeMillis();
-                if(countDown == 0) {
+                if (countDown == 0) {
                     runs = false;
                     showNewImages();
                 }
@@ -49,7 +51,7 @@ public class ValidationTerm extends JFrame implements Runnable{
         this.images = images;
         this.classifications = classifications;
         this.countImages = countImages;
-        if(images.size() < countImages) {
+        if (images.size() < countImages) {
             throw new ChatterException("not enough images");
         }
         this.setTitle("Validation Term (" + countDown + " Seconds)");
@@ -57,24 +59,24 @@ public class ValidationTerm extends JFrame implements Runnable{
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         upperPanel = new JPanel();
         upperPanel.add(mainImageButton);
-        
+
         middlePanel = new JPanel();
         middlePanel.setLayout(new GridLayout(1, countImages));
 
         // count images Anzahl random aus images ausählen
-        
+
         showNewImages();
         downPanel = new JPanel();
         downPanel.add(newImagesButton);
 
         newImagesButton.addActionListener(e -> {
-            
+
             showNewImages();
         });
 
         mainPanel.add(upperPanel);
         mainPanel.add(middlePanel);
-       
+
         mainPanel.add(downPanel);
         this.add(mainPanel);
         this.setSize(400, 400);
@@ -82,14 +84,15 @@ public class ValidationTerm extends JFrame implements Runnable{
         this.setVisible(true);
         t.start();
     }
+
     public void showNewImages() {
         randomDescs.clear();
         countDown = 10;
         this.setTitle("Validation Term (" + countDown + " Seconds)");
         middlePanel.removeAll();
         Collections.shuffle(images);
-        
-        
+
+
         for (int i = 0; i < countImages; i++) {
             randomDescs.add(images.get(i));
         }
@@ -111,7 +114,7 @@ public class ValidationTerm extends JFrame implements Runnable{
             button.addActionListener(e -> {
                 JButton imageButton = (JButton) e.getSource();
                 ClassificationResult result2 = null;
-                if(randomDescs.get(0).getMainImage().equals(buttonMap.get(imageButton).getMainImage())) {
+                if (randomDescs.get(0).getMainImage().equals(buttonMap.get(imageButton).getMainImage())) {
                     System.out.println("Korrekt");
                     result2 = new ClassificationResult(randomDescs.get(0), ClassificationResultType.CORRECT);
                     classifications.addResult(result2);
