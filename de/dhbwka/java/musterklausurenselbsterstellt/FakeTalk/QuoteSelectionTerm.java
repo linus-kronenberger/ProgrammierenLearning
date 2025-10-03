@@ -193,6 +193,7 @@ public class QuoteSelectionTerm extends JFrame implements Runnable {
         for (int i = 0; i < rows*cols; i++) {
             QuoteButton button = new QuoteButton();
             button.setQ(quotes.get(i));
+            buttons.add(button);
             buttonMap.put(quotes.get(i), button);
             gridPanel.add(button);
             button.addActionListener(e-> {
@@ -218,7 +219,6 @@ public class QuoteSelectionTerm extends JFrame implements Runnable {
     }
 
     public void answerSelected(FakeTalkClient client, Quote q, QuoteType selectedType) {
-        JOptionPane.showMessageDialog(this, q.getCitation());
         if(selectedType == q.getType()) {
             client.addPoints(pointsToAdd);
         } else {
@@ -229,6 +229,7 @@ public class QuoteSelectionTerm extends JFrame implements Runnable {
                 .stream()
                 .filter(b->{return b.isUnknown();})
                 .toList();
+        buttonsUnknown.forEach(b->{b.setEnabled(true);});
         if(buttonsUnknown.isEmpty()) {
             String scoreSummary = "";
             for(FakeTalkClient c : clients) {
@@ -241,7 +242,7 @@ public class QuoteSelectionTerm extends JFrame implements Runnable {
             JOptionPane.showMessageDialog(this, "Game finished. Score: " + scoreSummary);
             this.ended = true;
             // im Dialog angezeigt Nachricht jetzt auch in fake-score.txt
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter("/de/dhbwka/java/musterklausurenselbsterstellt/FakeTalk/fake-score.txt", true))) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter("de/dhbwka/java/musterklausurenselbsterstellt/FakeTalk/fake-score.txt", true))) {
                 bw.write("Game finished. Score: " + scoreSummary);
                 bw.newLine();
                 bw.close();
@@ -252,11 +253,18 @@ public class QuoteSelectionTerm extends JFrame implements Runnable {
         } else {
             // nächsten Spieler auswählen
             if(clientIndex == clients.size() - 1) {
+                QuoteTerm c = (QuoteTerm) client;
+                c.getHotButton().setEnabled(false);
+                c.getBullshitButton().setEnabled(false);
+
                 clientIndex = 0;
                 currentClient = clients.get(clientIndex);
                 aufforderungLabel.setText(aufforderungLabel.getText() + currentClient.getPlayerName());
 
             } else {
+                QuoteTerm c = (QuoteTerm) client;
+                c.getHotButton().setEnabled(false);
+                c.getBullshitButton().setEnabled(false);
                 clientIndex ++;
                 currentClient = clients.get(clientIndex);
                 aufforderungLabel.setText(aufforderungLabel.getText() + currentClient.getPlayerName());
