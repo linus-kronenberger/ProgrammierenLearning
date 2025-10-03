@@ -1,4 +1,4 @@
-package de.dhbwka.java.templates.Timer;
+package de.dhbwka.java.templates.Threads.Timer;
 
 import javax.swing.JFrame;
 
@@ -13,7 +13,8 @@ public class Timer extends JFrame implements Runnable {
         while (threadRuns) {
             if (timerClock == 0) {
                 threadRuns = false;
-                Thread.currentThread().interrupt();
+                this.dispose();
+                System.exit(0);
             } else if (System.currentTimeMillis() - timerTime >= 1000) {
                 timerClock--;
                 timerTime = System.currentTimeMillis();
