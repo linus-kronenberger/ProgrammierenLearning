@@ -3,6 +3,25 @@ public class Message {
     private int seconds = 30;
     private long timerTime = System.currentTimeMillis();
 
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+        if(seconds == 0) {
+
+        }
+    }
+
+    public long getTimerTime() {
+        return timerTime;
+    }
+
+    public void setTimerTime(long timerTime) {
+        this.timerTime = timerTime;
+    }
+
     public Message(Account sender, String text) {
         this.sender = sender;
         this.text = text;
@@ -26,8 +45,8 @@ public class Message {
 
     private String text;
 
-    public static String rot13(Message message) {
-        String oldText = message.getText();
+    public static String rot13(String message) {
+        String oldText = message;
         String newText = "";
         for(char c : oldText.toCharArray()) {
 
@@ -49,7 +68,6 @@ public class Message {
             }
         }
 
-        message.setText(newText);
         return newText;
     }
 

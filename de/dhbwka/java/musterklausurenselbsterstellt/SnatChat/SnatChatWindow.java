@@ -20,7 +20,8 @@ public class SnatChatWindow extends JFrame implements SnatChatFrontend{
     private JPanel sendPanel = new JPanel();
     private JButton sendButton = new JButton();
     private ButtonGroup radioGroup = new ButtonGroup();
-    private HashMap<Message, JLabel> map= new HashMap<>();
+    private HashMap<Message, JLabel> map = new HashMap<>();
+
 
     public SnatChatWindow(SnatChatRoom room, Account account) {
         this.room = room;
@@ -73,6 +74,9 @@ public class SnatChatWindow extends JFrame implements SnatChatFrontend{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(500, 500);
         this.setVisible(true);
+        CountDownThread countdownThread = new CountDownThread(room.getMessages(), map);
+        Thread thread = new Thread(countdownThread);
+        thread.start();
     }
 
     public void send() {
@@ -89,10 +93,9 @@ public class SnatChatWindow extends JFrame implements SnatChatFrontend{
     public void receiveMessage(Message msg) {
         String txt = msg.getSender().getName() + ": " +  msg.getText();
         System.out.println(txt);
-        JLabel messageLabel = new JLabel(txt);
+        JLabel messageLabel = new JLabel(txt + "[30]");
         map.put(msg, messageLabel);
         messageLabel.setBackground(msg.getSender().getColor());
-        CountDownThread countdownThread = new CountDownThread();
 
         chatComponent.add(messageLabel);
         chatComponent.repaint();

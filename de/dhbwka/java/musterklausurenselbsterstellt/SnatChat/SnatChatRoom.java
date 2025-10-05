@@ -7,6 +7,14 @@ public class SnatChatRoom {
     private List<SnatChatFrontend> frontends = new ArrayList<>();
     private List<Message> messages = new ArrayList<>();
 
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
     public SnatChatRoom(String roomName) {
         this.roomName = roomName;
     }
@@ -31,7 +39,7 @@ public class SnatChatRoom {
         List<String> lastLines = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(roomName+".txt"))) {
             while (br.ready()) {
-                String line = br.readLine();
+                String line = Message.rot13(br.readLine());
                 lines.add(line);
                 System.out.println("Line Read: " + line);
             }
@@ -69,9 +77,8 @@ public class SnatChatRoom {
     }
     public void write(String text, String roomName) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(roomName + ".txt", true))) {
-            bw.write(text);
+            bw.write(Message.rot13(text));
             bw.newLine();
-            bw.close();
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
