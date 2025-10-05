@@ -74,9 +74,6 @@ public class SnatChatWindow extends JFrame implements SnatChatFrontend{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(500, 500);
         this.setVisible(true);
-        CountDownThread countdownThread = new CountDownThread(room.getMessages(), map);
-        Thread thread = new Thread(countdownThread);
-        thread.start();
     }
 
     public void send() {
@@ -100,6 +97,24 @@ public class SnatChatWindow extends JFrame implements SnatChatFrontend{
         chatComponent.add(messageLabel);
         chatComponent.repaint();
         chatComponent.revalidate();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                int remain = 30;
+                while(remain > 0 ) {
+                    messageLabel.setText(txt + "[" + remain + "]");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    remain--;
+                }
+                chatComponent.remove(messageLabel);
+            }
+        };
+
+        new Thread(runnable).start();
     }
 
     @Override
