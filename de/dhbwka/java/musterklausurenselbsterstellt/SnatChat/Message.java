@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.SnatChat;
+
 public class Message {
     private Account sender;
     private int seconds = 30;

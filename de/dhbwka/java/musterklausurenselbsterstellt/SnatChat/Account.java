@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.SnatChat;
+
 import java.awt.*;
 
 public class Account {

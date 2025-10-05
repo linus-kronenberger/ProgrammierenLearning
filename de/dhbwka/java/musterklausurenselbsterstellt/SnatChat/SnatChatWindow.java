@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.SnatChat;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedWriter;

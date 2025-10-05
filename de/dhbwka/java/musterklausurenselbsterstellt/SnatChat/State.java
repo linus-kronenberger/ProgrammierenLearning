@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.SnatChat;
+
 public enum State {
     AVAILABLE("Available"),
     AWAY("Away"),

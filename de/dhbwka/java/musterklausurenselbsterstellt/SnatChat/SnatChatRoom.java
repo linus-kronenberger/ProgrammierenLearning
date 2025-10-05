@@ -1,3 +1,8 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.SnatChat;
+
+import de.dhbwka.java.musterklausurenselbsterstellt.SnatChat.Message;
+import de.dhbwka.java.musterklausurenselbsterstellt.SnatChat.SnatChatFrontend;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +42,7 @@ public class SnatChatRoom {
     public void register(SnatChatFrontend s) {
         List<String> lines = new ArrayList<>();
         List<String> lastLines = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(roomName+".txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("de/dhbwka/java/musterklausurenselbsterstellt/SnatChat/"+roomName+".txt"))) {
             while (br.ready()) {
                 String line = Message.rot13(br.readLine());
                 lines.add(line);
@@ -76,7 +81,7 @@ public class SnatChatRoom {
         write(text, roomName);
     }
     public void write(String text, String roomName) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(roomName + ".txt", true))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("de/dhbwka/java/musterklausurenselbsterstellt/SnatChat/" + roomName + ".txt", true))) {
             bw.write(Message.rot13(text));
             bw.newLine();
             bw.close();

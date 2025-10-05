@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.SnatChat;
+
 public class SnatChat {
 	
 	public static void main(String[] args) {
