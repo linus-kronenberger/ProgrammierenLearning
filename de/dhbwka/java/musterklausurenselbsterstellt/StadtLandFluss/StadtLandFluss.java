@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.StadtLandFluss;
+
 public class StadtLandFluss {
     public static void main(String[] args) {
         Game slf = new Game(4, 6, 60);

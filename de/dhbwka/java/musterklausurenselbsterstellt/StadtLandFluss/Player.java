@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.StadtLandFluss;
+
 public class Player {
     private String name;
     private int points = 0;

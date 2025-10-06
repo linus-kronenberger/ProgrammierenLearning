@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.StadtLandFluss;
+
 public enum ColumnType {
     CITY("Stadt"),
     COUNTRY ("Land"),

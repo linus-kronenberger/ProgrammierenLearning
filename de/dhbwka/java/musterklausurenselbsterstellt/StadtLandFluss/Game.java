@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.StadtLandFluss;
+
 import javax.print.attribute.standard.SheetCollate;
 import javax.swing.*;
 import java.awt.*;
@@ -118,7 +120,7 @@ public class Game {
         sheets.add(sheet);
     }
     public void readIn() {
-        try (BufferedReader br = new BufferedReader(new FileReader("validwords.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("de/dhbwka/java/musterklausurenselbsterstellt/StadtLandFluss/validwords.txt"))) {
             while (br.ready()) {
                 String line = br.readLine();
                 System.out.println("Line Read: " + line);
@@ -217,7 +219,7 @@ public class Game {
 
                 if(!validWords.contains(term) && !term.isBlank()) {
                     if(JOptionPane.showConfirmDialog(JOptionPane.getRootFrame(), "Ist " + term + " korrekt für Kategorie '" + c.getTitle() + "'?", "Option auswählen", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE  ) == JOptionPane.YES_OPTION) {
-                        try (BufferedWriter bw = new BufferedWriter(new FileWriter("validwords.txt", true))) {
+                        try (BufferedWriter bw = new BufferedWriter(new FileWriter("de/dhbwka/java/musterklausurenselbsterstellt/StadtLandFluss/validwords.txt", true))) {
                             bw.write(term);
                             bw.newLine();
                             bw.close();

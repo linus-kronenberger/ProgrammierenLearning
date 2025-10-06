@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.StadtLandFluss;
+
 import javax.swing.*;
 import javax.swing.text.BoxView;
 import java.awt.*;
