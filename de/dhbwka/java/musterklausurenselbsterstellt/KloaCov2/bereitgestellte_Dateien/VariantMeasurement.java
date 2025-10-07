@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.KloaCov2.bereitgestellte_Dateien;
+
 import java.util.*;
 
 public class VariantMeasurement {

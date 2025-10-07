@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.KloaCov2.bereitgestellte_Dateien;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

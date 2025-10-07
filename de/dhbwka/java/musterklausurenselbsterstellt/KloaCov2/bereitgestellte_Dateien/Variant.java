@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.KloaCov2.bereitgestellte_Dateien;
+
 public enum Variant {
     ALPHA("B.1.1.7"),
     BETA("B.1.351"),

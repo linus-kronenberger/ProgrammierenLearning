@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.KloaCov2.bereitgestellte_Dateien;
+
 public class SewagePlant implements MapItem{
     private String name;
     private int population; //anzahl personen

@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.KloaCov2.bereitgestellte_Dateien;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedWriter;
@@ -81,7 +83,7 @@ public class RKITerminal extends JFrame {
         this.countPopulation();
         bwMap.setMapItem(meas.getPlant(), meas.getTotalValue());
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("ppp-logs.txt", true))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("de/dhbwka/java/musterklausurenselbsterstellt/KloaCov2/ppp-logs.txt", true))) {
             String dataStructureValues = "";
             for(Variant var : meas.getMeasurements().keySet()) {
                 dataStructureValues += var.toString() + "=" + String.valueOf(meas.getMeasurements().get(var));
