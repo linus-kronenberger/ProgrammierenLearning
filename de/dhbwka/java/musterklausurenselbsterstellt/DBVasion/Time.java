@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.DBVasion;
+
 public class Time {
     // ZEIT
     private int hour;

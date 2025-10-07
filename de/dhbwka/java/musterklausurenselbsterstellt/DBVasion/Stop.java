@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.DBVasion;
+
 public class Stop {
     //HALT WÄHREND DER FAHRT
     private String name; //Name bahnhof

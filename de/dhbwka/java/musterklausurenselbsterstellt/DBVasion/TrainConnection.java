@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.DBVasion;
+
 import java.util.ArrayList;
 import java.util.List;
 

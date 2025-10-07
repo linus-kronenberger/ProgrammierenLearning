@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.DBVasion;
+
 import java.awt.*;
 
 public enum StopStatus {

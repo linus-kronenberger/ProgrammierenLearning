@@ -1,3 +1,5 @@
+package de.dhbwka.java.musterklausurenselbsterstellt.DBVasion;
+
 import javax.print.attribute.standard.JobHoldUntil;
 import javax.swing.*;
 import java.awt.*;
